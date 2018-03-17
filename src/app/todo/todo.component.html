@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 offset-md-1 offset-lg-2">
+      <mat-card>
+        <mat-form-field>
+          <input matInput placeholder="Task Name" [(ngModel)]="newTask.name">
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="addTask()">Add Task</button>
+      </mat-card>
+      <div class="container">
+        <div class="row text-center">
+          <div clas="col-6">
+            <a mat-button color="accent">All</a>
+            <a mat-button color="accent">Completed</a>
+            <a mat-button color="accent">Incompleted</a>
+          </div>
+          <div class="col-6 text-right">
+            <button mat-button mat-raised-button color="primary" (click)="writeTask()">Save</button>
+            <button mat-button mat-raised-button (click)="readTask()">Reset</button>
+          </div>
+        </div>
+      </div>
+      <mat-card>
+        <mat-list class="text-left">
+          <mat-list-item>
+            <span class="text-left">Completion</span> <mat-checkbox matLine [(ngModel)]="isCheckedAll" (change)="toggleCheckAll(isCheckedAll)"><strong>List of Tasks</strong></mat-checkbox>
+          </mat-list-item>
+          <mat-list-item *ngFor="let tasks of tasksList; let index=index">
+            <span class="alert mt-0 mb-0">{{(tasks['complete'])?'Complete':'Incomplete'}} </span>
+            <mat-checkbox matLine [(ngModel)]="tasks['complete']">{{tasks['name']}}</mat-checkbox>
+            <button mat-mini-fab color="accent" (click)="removeTask(index)">&times;</button>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+    </div>
+  </div>
+</div>

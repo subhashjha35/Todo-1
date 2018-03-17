@@ -1,0 +1,26 @@
+<mat-toolbar class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="">
+      <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_960_720.png" style="height:40px;" alt=""> ToDo
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">Home Page</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/app">Go To App <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="emailString && passwordString" (click)="onLogout()" style="cursor: pointer;">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" *ngIf="!emailString && !passwordString">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-toolbar>

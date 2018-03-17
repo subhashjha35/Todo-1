@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <mat-card>
+      <mat-card-title>Login Now</mat-card-title>
+      <button mat-fab color="primary">
+        <mat-icon>account_box</mat-icon>
+      </button>
+      <br>
+      <form class="container-fluid" [formGroup]="signinForm" (submit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="Username" class="col-12" formControlName="email">
+          <mat-error *ngIf="signinForm.get('email').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="signinForm.get('email').hasError('pattern')">
+            Invalid email.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="signinForm.get('password').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Login</button>
+        <a mat-raised-button routerLink="/register">New Registration</a>
+      </form>
+    </mat-card>
+  </div>
+  <span class="done">
+        <button mat-fab>
+          <mat-icon>check circle</mat-icon>
+        </button>
+    </span>
+</div>
